@@ -1,4 +1,5 @@
-﻿using System.Data.SqlClient;
+﻿using Microsoft.Data.SqlClient;
+
 
 namespace AppSocial.Datos
 {
@@ -6,16 +7,20 @@ namespace AppSocial.Datos
     {
         private string cadenaSQL = string.Empty;
 
-        public Conexion() {
+        public Conexion()
+        {
+
 
             var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.json").Build();
 
             cadenaSQL = builder.GetSection("ConnectionStrings:CadenaSQL").Value;
-            }
+        }
 
         public string getCadenaSQL()
         {
             return cadenaSQL;
         }
+
+
     }
 }
